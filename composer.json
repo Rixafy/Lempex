@@ -1,0 +1,14 @@
+{
+    "name": "rixafy/lempex",
+    "description": "Console utility for managing web projects",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rick Strafy",
+            "email": "rixafy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
