@@ -7,6 +7,7 @@ namespace App;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Types\Type;
 use Nette\Configurator;
+use Ramsey\Uuid\Doctrine\UuidBinaryType;
 
 class Booting
 {
@@ -39,6 +40,6 @@ class Booting
 	 */
 	private static function additionalSetup(): void
 	{
-		Type::addType('uuid_binary', 'Ramsey\Uuid\Doctrine\UuidBinaryType');
+		Type::addType(UuidBinaryType::NAME, 'Ramsey\Uuid\Doctrine\UuidBinaryType');
 	}
 }
