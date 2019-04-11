@@ -9,6 +9,29 @@
             "email": "rixafy@gmail.com"
         }
     ],
+    "require": {
+        "php": "^7.3",
+        "nette/bootstrap": "^3.0",
+        "nette/caching": "^3.0",
+        "nette/di": "^3.0",
+        "nette/finder": "^2.5",
+        "nette/robot-loader": "^3.0",
+        "nette/utils": "^3.0",
+        "latte/latte": "^2.5",
+        "tracy/tracy": "^2.6",
+        "nettrine/orm": "^0.5",
+        "contributte/console": "^0.7",
+        "nettrine/annotations": "^0.5",
+        "ramsey/uuid-doctrine": "dev-master",
+        "nettrine/dbal": "^0.5"
+    },
+    "autoload": {
+        "classmap": ["app/Booting.php"]
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
+    }
 }

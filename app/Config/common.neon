@@ -1,0 +1,18 @@
+extensions:
+    # Dbal
+    dbal: Nettrine\DBAL\DI\DbalExtension
+    dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+
+    # Orm and annotations
+    orm: Nettrine\ORM\DI\OrmExtension
+    orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+    orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+    annotations: Nettrine\Annotations\DI\AnnotationsExtension
+
+
+orm.annotations:
+    debug: %debugMode%
+    excludePaths: []
+    defaultCache: apcu
+    paths:
+        - app/Model
