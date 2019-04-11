@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace Lempex;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Types\Type;
