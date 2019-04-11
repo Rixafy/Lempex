@@ -16,3 +16,7 @@ orm.annotations:
     defaultCache: apcu
     paths:
         - app/Model
+
+
+includes:
+	- console.neon

@@ -1,0 +1,15 @@
+extensions:
+    console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+
+
+console:
+	lazy: false
+
+
+services:
+
+	lempexCommand:
+		class: Lempex\Module\Command\LempexCommand
+
+	projectCommand:
+		class: Lempex\Module\Command\Project\ProjectCommand
