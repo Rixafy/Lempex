@@ -10,6 +10,12 @@ services:
 
 	lempexCommand:
 		class: Lempex\Module\Command\LempexCommand
+		inject: true
 
 	projectCommand:
 		class: Lempex\Module\Command\Project\ProjectCommand
+		inject: true
+
+	projectAddHelper:
+		class: Lempex\Module\Command\Project\Helper\ProjectAddHelper
+		inject: true
