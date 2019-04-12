@@ -1,0 +1,10 @@
+services:
+
+	projectFactory:
+		class: Lempex\Model\Project\ProjectFactory
+
+	websiteFactory:
+		class: Lempex\Model\Website\WebsiteFactory
+
+	storageFactory:
+		class: Lempex\Model\Storage\StorageFactory
