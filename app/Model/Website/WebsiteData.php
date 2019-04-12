@@ -9,7 +9,10 @@ use Lempex\Model\Project\Project;
 class WebsiteData
 {
 	/** @var string */
-	public $domainName;
+	public $name;
+
+	/** @var string */
+	public $description;
 
 	/** @var int */
 	public $domainLevel = 2;

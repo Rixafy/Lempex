@@ -25,6 +25,12 @@ class Storage
 	 * @ORM\Column(type="string", length=255)
 	 * @var string
 	 */
+	private $description;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 * @var string
+	 */
 	private $password;
 
 	/**
@@ -94,6 +100,7 @@ class Storage
 	public function edit(StorageData $storageData): void
 	{
 		$this->name = $storageData->name;
+		$this->description = $storageData->description;
 		$this->root_directory = $storageData->rootDirectory;
 		$this->shell = $storageData->shell;
 	}
@@ -103,6 +110,7 @@ class Storage
 		$data = new StorageData();
 
 		$data->name = $this->name;
+		$data->description = $this->description;
 		$data->rootDirectory = $this->root_directory;
 		$data->shell = $this->shell;
 
@@ -112,6 +120,11 @@ class Storage
 	public function getName(): string
 	{
 		return $this->name;
+	}
+
+	public function getDescription(): string
+	{
+		return $this->description;
 	}
 
 	public function changePassword(string $password, callable $hash): void

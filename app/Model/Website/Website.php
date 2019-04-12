@@ -18,7 +18,13 @@ class Website
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
 	 */
-	private $domain_name;
+	private $name;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 * @var string
+	 */
+	private $description;
 
 	/**
 	 * @ORM\Column(type="integer")
@@ -49,7 +55,8 @@ class Website
 
 	public function edit(WebsiteData $websiteData): void
 	{
-		$this->domain_name = $websiteData->domainName;
+		$this->name = $websiteData->name;
+		$this->description = $websiteData->description;
 		$this->domain_level = $websiteData->domainLevel;
 	}
 
@@ -57,15 +64,21 @@ class Website
 	{
 		$data = new WebsiteData();
 
-		$data->domainName = $this->domain_name;
+		$data->name = $this->name;
+		$data->description = $this->description;
 		$data->domainLevel = $this->domain_level;
 
 		return $data;
 	}
 
-	public function getDomainName(): string
+	public function getName(): string
 	{
-		return $this->domain_name;
+		return $this->name;
+	}
+
+	public function getDescription(): string
+	{
+		return $this->description;
 	}
 
 	public function getDomainLevel(): int
