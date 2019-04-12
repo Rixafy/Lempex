@@ -13,8 +13,8 @@ class ProjectData
 	public $description;
 
 	/** @var string */
-	public $userUid;
+	public $linuxUid;
 
 	/** @var string */
-	public $userGid;
+	public $linuxGid;
 }

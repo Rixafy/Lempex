@@ -86,8 +86,8 @@ class Storage
 	public function __construct(StorageData $storageData)
 	{
 		$this->project = $storageData->project;
-		$this->linux_uid = $this->project->getUserUid();
-		$this->linux_gid = $this->project->getUserGid();
+		$this->linux_uid = $this->project->getLinuxUid();
+		$this->linux_gid = $this->project->getLinuxGid();
 		$this->edit($storageData);
 	}
 

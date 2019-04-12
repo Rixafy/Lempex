@@ -29,13 +29,13 @@ class Project
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $user_uid;
+	private $linux_uid;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $user_gid;
+	private $linux_gid;
 
 	use DateTimeTrait;
 
@@ -48,8 +48,8 @@ class Project
 	{
 		$this->name = $projectData->name;
 		$this->description = $projectData->description;
-		$this->user_uid = $projectData->userUid;
-		$this->user_gid = $projectData->userGid;
+		$this->linux_uid = $projectData->linuxUid;
+		$this->linux_gid = $projectData->linuxGid;
 	}
 
 	public function getName(): string
@@ -62,13 +62,13 @@ class Project
 		return $this->description;
 	}
 
-	public function getUserUid(): int
+	public function getLinuxUid(): int
 	{
-		return $this->user_uid;
+		return $this->linux_uid;
 	}
 
-	public function getUserGid(): int
+	public function getLinuxGid(): int
 	{
-		return $this->user_gid;
+		return $this->linux_gid;
 	}
 }
