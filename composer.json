@@ -23,7 +23,8 @@
         "contributte/console": "^0.7",
         "nettrine/annotations": "^0.5",
         "ramsey/uuid-doctrine": "dev-master",
-        "nettrine/dbal": "^0.5"
+        "nettrine/dbal": "^0.5",
+        "rixafy/doctrine-traits": "dev-master"
     },
     "autoload": {
         "classmap": ["app/Booting.php"]
