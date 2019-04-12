@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Lempex\Model\Website;
 
 use Lempex\Model\Project\Project;
-use Lempex\Model\Project\WebsiteData;
 use Rixafy\DoctrineTraits\DateTimeTrait;
 
 /**

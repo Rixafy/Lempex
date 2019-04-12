@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Lempex\Model\Project;
+namespace Lempex\Model\Website;
 
-use Lempex\Model\Website\Website;
+use Lempex\Model\Project\Project;
 
 class WebsiteData
 {
