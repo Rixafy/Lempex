@@ -14,7 +14,7 @@ use Rixafy\DoctrineTraits\DateTimeTrait;
 class Project
 {
 	/**
-	 * @ORM\Column(type="string", length=127)
+	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
 	 */
 	private $name;
@@ -38,6 +38,19 @@ class Project
 	private $user_gid;
 
 	use DateTimeTrait;
+
+	public function __construct(ProjectData $projectData)
+	{
+		$this->edit($projectData);
+	}
+
+	public function edit(ProjectData $projectData): void
+	{
+		$this->name = $projectData->name;
+		$this->description = $projectData->description;
+		$this->user_uid = $projectData->userUid;
+		$this->user_gid = $projectData->userGid;
+	}
 
 	public function getName(): string
 	{
