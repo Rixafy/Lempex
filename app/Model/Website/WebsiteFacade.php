@@ -57,12 +57,15 @@ class WebsiteFacade
 	/**
 	 * @throws Exception\WebsiteNotFoundException
 	 */
-	public function edit(UuidInterface $id, WebsiteData $websiteData): Website
+	public function edit(UuidInterface $id, WebsiteData $websiteData, bool $flush = true): Website
 	{
 		$website = $this->get($id);
 
 		$website->edit($websiteData);
-		$this->entityManager->flush();
+
+		if ($flush) {
+			$this->entityManager->flush();
+		}
 
 		return $website;
 	}

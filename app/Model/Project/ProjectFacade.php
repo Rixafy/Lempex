@@ -49,12 +49,15 @@ class ProjectFacade
 	/**
 	 * @throws Exception\ProjectNotFoundException
 	 */
-	public function edit(UuidInterface $id, ProjectData $projectData): Project
+	public function edit(UuidInterface $id, ProjectData $projectData, bool $flush = true): Project
 	{
 		$project = $this->get($id);
 
 		$project->edit($projectData);
-		$this->entityManager->flush();
+
+		if ($flush) {
+			$this->entityManager->flush();
+		}
 
 		return $project;
 	}

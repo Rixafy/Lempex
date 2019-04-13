@@ -63,7 +63,7 @@ class StorageFacade
 	/**
 	 * @throws Exception\StorageNotFoundException
 	 */
-	public function edit(UuidInterface $id, StorageData $storageData): Storage
+	public function edit(UuidInterface $id, StorageData $storageData, bool $flush = true): Storage
 	{
 		$storage = $this->get($id);
 
@@ -75,7 +75,9 @@ class StorageFacade
 			});
 		}
 
-		$this->entityManager->flush();
+		if ($flush) {
+			$this->entityManager->flush();
+		}
 
 		return $storage;
 	}
