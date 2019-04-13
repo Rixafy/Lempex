@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Lempex\Model\Project;
 
 use Rixafy\DoctrineTraits\DateTimeTrait;
+use Rixafy\DoctrineTraits\RemovableTrait;
 
 /**
  * @ORM\Entity
@@ -37,6 +38,7 @@ class Project
 	 */
 	private $linux_gid;
 
+	use RemovableTrait;
 	use DateTimeTrait;
 
 	public function __construct(ProjectData $projectData)
