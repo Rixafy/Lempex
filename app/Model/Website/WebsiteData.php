@@ -17,6 +17,15 @@ class WebsiteData
 	/** @var int */
 	public $domainLevel = 2;
 
+	/** @var float */
+	public $phpVersion = 2;
+
+	/** @var bool */
+	public $wwwRedirect = true;
+
+	/** @var bool */
+	public $nonWwwRedirect = false;
+
 	/** @var Website */
 	public $parent;
 

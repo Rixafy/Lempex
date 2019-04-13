@@ -12,6 +12,9 @@ class StorageData
 	public $name;
 
 	/** @var string */
+	public $password;
+
+	/** @var string */
 	public $description;
 
 	/** @var string */

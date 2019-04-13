@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Lempex\Model\Storage;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Nette\Security\Passwords;
 use Ramsey\Uuid\UuidInterface;
 
 class StorageFacade
@@ -18,14 +19,19 @@ class StorageFacade
 	/** @var StorageFactory */
 	private $storageFactory;
 
+	/** @var Passwords */
+	private $passwords;
+
 	public function __construct(
 		EntityManagerInterface $entityManager,
 		StorageRepository $storageRepository,
-		StorageFactory $storageFactory
+		StorageFactory $storageFactory,
+		Passwords $passwords
 	) {
 		$this->entityManager = $entityManager;
 		$this->storageRepository = $storageRepository;
 		$this->storageFactory = $storageFactory;
+		$this->passwords = $passwords;
 	}
 
 	public function create(StorageData $storageData): Storage
@@ -62,6 +68,13 @@ class StorageFacade
 		$storage = $this->get($id);
 
 		$storage->edit($storageData);
+
+		if ($storageData->password !== null) {
+			$storage->changePassword($storageData->password, function (string $password): string {
+				return $this->passwords->hash($password);
+			});
+		}
+
 		$this->entityManager->flush();
 
 		return $storage;

@@ -34,6 +34,24 @@ class Website
 	private $domain_level;
 
 	/**
+	 * @ORM\Column(type="float")
+	 * @var float
+	 */
+	private $php_version;
+
+	/**
+	 * @ORM\Column(type="boolean")
+	 * @var bool
+	 */
+	private $www_redirect;
+
+	/**
+	 * @ORM\Column(type="boolean")
+	 * @var bool
+	 */
+	private $non_www_redirect;
+
+	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Website\Website", inversedBy="website", cascade={"persist"})
 	 * @var Website
 	 */
@@ -60,6 +78,9 @@ class Website
 		$this->name = $websiteData->name;
 		$this->description = $websiteData->description;
 		$this->domain_level = $websiteData->domainLevel;
+		$this->php_version = $websiteData->phpVersion;
+		$this->www_redirect = $websiteData->wwwRedirect;
+		$this->non_www_redirect = $websiteData->nonWwwRedirect;
 	}
 
 	public function getData(): WebsiteData
@@ -69,6 +90,9 @@ class Website
 		$data->name = $this->name;
 		$data->description = $this->description;
 		$data->domainLevel = $this->domain_level;
+		$data->phpVersion = $this->php_version;
+		$data->wwwRedirect = $this->www_redirect;
+		$data->nonWwwRedirect = $this->non_www_redirect;
 
 		return $data;
 	}
@@ -86,6 +110,21 @@ class Website
 	public function getDomainLevel(): int
 	{
 		return $this->domain_level;
+	}
+
+	public function getPhpVersion(): float
+	{
+		return $this->php_version;
+	}
+
+	public function isWwwRedirect(): bool
+	{
+		return $this->www_redirect;
+	}
+
+	public function isNonWwwRedirect(): bool
+	{
+		return $this->non_www_redirect;
 	}
 
 	public function getParent(): Website
