@@ -41,7 +41,7 @@ class ProjectAddHelper implements CommandHelper
 			}
 		}
 
-		$addStorage = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add FTP storage? [<info>Y/n</info>] ', true));
+		$addStorage = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add FTP storage now? [<info>Y/n</info>] ', true));
 		if ($addStorage) {
 			$storageName = $questionHelper->ask($input, $output, new Question('Please specify FTP name [<info>' . $projectName .'</info>]: ', $projectName));
 			$storagePassword = $questionHelper->ask($input, $output, new Question('Create FTP password (or press [Enter] to use this) [<info>' . $ftpPass = Random::generate(16) .'</info>]: ', $ftpPass));
