@@ -59,7 +59,6 @@ class ProjectFacade
 		return $project;
 	}
 
-
 	/**
 	 * @throws Exception\ProjectNotFoundException
 	 */

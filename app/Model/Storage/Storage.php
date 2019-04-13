@@ -7,6 +7,7 @@ namespace Lempex\Model\Storage;
 use DateTime;
 use Lempex\Model\Project\Project;
 use Rixafy\DoctrineTraits\DateTimeTrait;
+use Rixafy\DoctrineTraits\RemovableTrait;
 
 /**
  * @ORM\Entity
@@ -87,6 +88,7 @@ class Storage
 	 */
 	private $last_connection_at;
 
+	use RemovableTrait;
 	use DateTimeTrait;
 
 	public function __construct(StorageData $storageData)
