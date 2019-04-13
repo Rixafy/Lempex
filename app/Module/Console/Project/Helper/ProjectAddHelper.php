@@ -51,7 +51,7 @@ class ProjectAddHelper implements CommandHelper
 
 		$projectData->description = $questionHelper->ask($input, $output, new Question('Please specify project description: '));
 
-		$addWebsite = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add project website now? [<info>Y/n</info>] ', true));
+		$addWebsite = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add project website now? [<info>Y/n</info>] ', false));
 		if ($addWebsite) {
 			$websiteData = new WebsiteData();
 			$websiteData->name = $questionHelper->ask($input, $output, new Question('Please specify domain name [<info>' . $webName = ($projectData->name . '.com') . '</info>] ', $webName));
@@ -62,7 +62,7 @@ class ProjectAddHelper implements CommandHelper
 			}
 		}
 
-		$addStorage = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add FTP storage now? [<info>Y/n</info>] ', true));
+		$addStorage = $questionHelper->ask($input, $output, new ConfirmationQuestion('Add FTP storage now? [<info>Y/n</info>] ', false));
 		if ($addStorage) {
 			$storageData = new StorageData();
 			$storageData->name = $questionHelper->ask($input, $output, new Question('Please specify FTP name [<info>' . $projectData->name .'</info>]: ', $projectData->name));
