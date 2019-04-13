@@ -9,7 +9,7 @@ use Doctrine\DBAL\Types\Type;
 use Nette\Configurator;
 use Ramsey\Uuid\Doctrine\UuidBinaryType;
 
-class Booting
+class Bootstrap
 {
 	/**
 	 * @throws DBALException

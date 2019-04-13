@@ -28,7 +28,7 @@
         "rixafy/doctrine-traits": "dev-master"
     },
     "autoload": {
-        "classmap": ["app/Booting.php"]
+        "classmap": ["app/Bootstrap.php"]
     },
     "minimum-stability": "dev",
     "config": {
