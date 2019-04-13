@@ -11,3 +11,15 @@ services:
 	# Repositories
 	projectRepository:
 		class: Lempex\Model\Project\ProjectRepository
+	websiteRepository:
+		class: Lempex\Model\Website\WebsiteRepository
+	storageRepository:
+		class: Lempex\Model\Storage\StorageRepository
+
+	# Facades
+	projectFacade:
+		class: Lempex\Model\Project\ProjectFacade
+	websiteFacade:
+		class: Lempex\Model\Website\WebsiteFacade
+	storageFacade:
+		class: Lempex\Model\Storage\StorageFacade
