@@ -6,6 +6,7 @@ namespace Lempex\Model\Website;
 
 use Lempex\Model\Project\Project;
 use Rixafy\DoctrineTraits\DateTimeTrait;
+use Rixafy\DoctrineTraits\RemovableTrait;
 
 /**
  * @ORM\Entity
@@ -44,6 +45,7 @@ class Website
 	 */
 	private $project;
 
+	use RemovableTrait;
 	use DateTimeTrait;
 
 	public function __construct(WebsiteData $websiteData)
