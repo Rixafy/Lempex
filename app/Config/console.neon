@@ -16,6 +16,14 @@ services:
 		class: Lempex\Module\Command\Project\ProjectCommand
 		inject: true
 
+	projectInfoHelper:
+		class: Lempex\Module\Command\Project\Helper\ProjectInfoHelper
+		inject: true
+
 	projectAddHelper:
 		class: Lempex\Module\Command\Project\Helper\ProjectAddHelper
+		inject: true
+
+	projectEditHelper:
+		class: Lempex\Module\Command\Project\Helper\ProjectEditHelper
 		inject: true
