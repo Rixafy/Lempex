@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Lempex\Module\Command\Project\Helper;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Lempex\Model\Project\Project;
 use Lempex\Model\Project\ProjectData;
 use Lempex\Model\Project\ProjectFactory;
 use Lempex\Model\Storage\StorageData;
