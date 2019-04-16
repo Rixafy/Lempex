@@ -49,6 +49,14 @@ class ProjectFacade
 	/**
 	 * @throws Exception\ProjectNotFoundException
 	 */
+	public function getByName(string $name): Project
+	{
+		return $this->projectRepository->getByName($name);
+	}
+
+	/**
+	 * @throws Exception\ProjectNotFoundException
+	 */
 	public function edit(UuidInterface $id, ProjectData $projectData, bool $flush = true): Project
 	{
 		$project = $this->get($id);

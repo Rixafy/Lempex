@@ -54,6 +54,18 @@ class Project
 		$this->linux_gid = $projectData->linuxGid;
 	}
 
+	public function getData(): ProjectData
+	{
+		$data = new ProjectData();
+
+		$data->name = $this->name;
+		$data->description = $this->description;
+		$data->linuxUid = $this->linux_uid;
+		$data->linuxGid = $this->linux_gid;
+
+		return $data;
+	}
+
 	public function getName(): string
 	{
 		return $this->name;

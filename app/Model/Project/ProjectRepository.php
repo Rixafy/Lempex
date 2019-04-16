@@ -39,6 +39,23 @@ class ProjectRepository
 	}
 
 	/**
+	 * @throws ProjectNotFoundException
+	 */
+	public function getByName(string $name): Project
+	{
+		/** @var Project $project */
+		$project = $this->getRepository()->findOneBy([
+			'name' => $name
+		]);
+
+		if ($project === null) {
+			throw new ProjectNotFoundException('Project with name ' . $name . ' not found.');
+		}
+
+		return $project;
+	}
+
+	/**
 	 * @return Project[]
 	 */
 	public function getAll(): array

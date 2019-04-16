@@ -6,6 +6,7 @@ namespace Lempex\Module\Command\Project;
 
 use Lempex\Module\Command\Project\Helper\ProjectAddHelper;
 use Lempex\Module\Command\Project\Helper\ProjectEditHelper;
+use Lempex\Module\Command\Project\Helper\ProjectInfoHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,6 +14,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProjectCommand extends Command
 {
+	/** @var ProjectInfoHelper @inject */
+	public $projectInfoHelper;
+
 	/** @var ProjectAddHelper @inject */
 	public $projectAddHelper;
 
@@ -37,6 +41,9 @@ class ProjectCommand extends Command
 		}
 
 		switch ($command) {
+			case 'info':
+				$this->projectInfoHelper->execute($input, $output, $this->getHelper('question'));
+				break;
 			case 'add':
 				$this->projectAddHelper->execute($input, $output, $this->getHelper('question'));
 				break;
@@ -45,6 +52,6 @@ class ProjectCommand extends Command
 				break;
 		}
 
-		$output->writeln('Hello World ' . $input->getArgument('name'));
+		$output->writeln('Command executed.');
 	}
 }
