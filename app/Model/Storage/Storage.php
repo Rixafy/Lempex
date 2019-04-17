@@ -6,6 +6,7 @@ namespace Lempex\Model\Storage;
 
 use DateTime;
 use Lempex\Model\Project\Project;
+use Nette\Security\Passwords;
 use Rixafy\DoctrineTraits\DateTimeTrait;
 use Rixafy\DoctrineTraits\RemovableTrait;
 
@@ -129,14 +130,14 @@ class Storage
 		return $this->description;
 	}
 
-	public function changePassword(string $password, callable $hash): void
+	public function changePassword(string $plainText, callable $hash): void
 	{
-		$this->password = $hash($password);
+		$this->password = $hash($plainText);
 	}
 
-	public function getPassword(): string
+	public function checkPassword(string $plainText, Passwords $passwords): bool
 	{
-		return $this->password;
+		return $passwords->verify($plainText, $this->password);
 	}
 
 	public function getLinuxUid(): int
