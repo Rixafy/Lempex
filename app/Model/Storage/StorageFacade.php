@@ -70,9 +70,7 @@ class StorageFacade
 		$storage->edit($storageData);
 
 		if ($storageData->password !== null) {
-			$storage->changePassword($storageData->password, function (string $password): string {
-				return $this->passwords->hash($password);
-			});
+			$storage->changePassword($storageData->password, $this->passwords);
 		}
 
 		if ($flush) {

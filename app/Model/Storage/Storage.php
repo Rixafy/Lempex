@@ -130,9 +130,9 @@ class Storage
 		return $this->description;
 	}
 
-	public function changePassword(string $plainText, callable $hash): void
+	public function changePassword(string $plainText, Passwords $passwords): void
 	{
-		$this->password = $hash($plainText);
+		$this->password = $passwords->hash($plainText);
 	}
 
 	public function checkPassword(string $plainText, Passwords $passwords): bool
