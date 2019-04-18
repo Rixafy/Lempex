@@ -32,7 +32,7 @@ class ProjectRepository
 		$project = $this->getRepository()->find($id);
 
 		if ($project === null) {
-			throw new ProjectNotFoundException('Project with id ' . $id . ' not found.');
+			throw ProjectNotFoundException::byId($id);
 		}
 
 		return $project;
@@ -49,7 +49,7 @@ class ProjectRepository
 		]);
 
 		if ($project === null) {
-			throw new ProjectNotFoundException('Project with name ' . $name . ' not found.');
+			throw ProjectNotFoundException::byName($name);
 		}
 
 		return $project;
