@@ -32,7 +32,7 @@ class StorageRepository
 		$storage = $this->getRepository()->find($id);
 
 		if ($storage === null) {
-			throw new StorageNotFoundException('Storage with id ' . $id . ' not found.');
+			throw StorageNotFoundException::byId($id);
 		}
 
 		return $storage;
