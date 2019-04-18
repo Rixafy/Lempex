@@ -32,7 +32,7 @@ class WebsiteRepository
 		$website = $this->getRepository()->find($id);
 
 		if ($website === null) {
-			throw new WebsiteNotFoundException('Website with id ' . $id . ' not found.');
+			throw WebsiteNotFoundException::byId($id);
 		}
 
 		return $website;
