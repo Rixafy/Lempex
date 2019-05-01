@@ -27,49 +27,49 @@ class Website
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
 	 */
-	private $name;
+	protected $name;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 * @var string
 	 */
-	private $description;
+	protected $description;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $domain_level;
+	protected $domain_level;
 
 	/**
 	 * @ORM\Column(type="float")
 	 * @var float
 	 */
-	private $php_version;
+	protected $php_version;
 
 	/**
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	private $www_redirect;
+	protected $www_redirect;
 
 	/**
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	private $non_www_redirect;
+	protected $non_www_redirect;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Website\Website", inversedBy="website", cascade={"persist"})
 	 * @var Website
 	 */
-	private $parent;
+	protected $parent;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Project\Project", inversedBy="website", cascade={"persist"})
 	 * @var Project
 	 */
-	private $project;
+	protected $project;
 
 	use RemovableTrait;
 	use DateTimeTrait;

@@ -11,16 +11,16 @@ use Ramsey\Uuid\UuidInterface;
 class StorageFacade
 {
 	/** @var EntityManagerInterface */
-	private $entityManager;
+	protected $entityManager;
 
 	/** @var StorageRepository */
-	private $storageRepository;
+	protected $storageRepository;
 
 	/** @var StorageFactory */
-	private $storageFactory;
+	protected $storageFactory;
 
 	/** @var Passwords */
-	private $passwords;
+	protected $passwords;
 
 	public function __construct(
 		EntityManagerInterface $entityManager,

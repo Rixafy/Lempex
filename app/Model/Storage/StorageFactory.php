@@ -10,7 +10,7 @@ use Ramsey\Uuid\Uuid;
 class StorageFactory
 {
 	/** @var Passwords */
-	private $passwords;
+	protected $passwords;
 
 	public function __construct(Passwords $passwords)
 	{

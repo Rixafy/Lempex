@@ -10,13 +10,13 @@ use Ramsey\Uuid\UuidInterface;
 class WebsiteFacade
 {
 	/** @var EntityManagerInterface */
-	private $entityManager;
+	protected $entityManager;
 
 	/** @var WebsiteRepository */
-	private $websiteRepository;
+	protected $websiteRepository;
 
 	/** @var WebsiteFactory */
-	private $websiteFactory;
+	protected $websiteFactory;
 
 	public function __construct(
 		EntityManagerInterface $entityManager,

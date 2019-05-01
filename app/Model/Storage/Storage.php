@@ -29,73 +29,73 @@ class Storage
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
 	 */
-	private $name;
+	protected $name;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 * @var string
 	 */
-	private $description;
+	protected $description;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 * @var string
 	 */
-	private $password;
+	protected $password;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $linux_uid;
+	protected $linux_uid;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $linux_gid;
+	protected $linux_gid;
 
 	/**
 	 * @ORM\Column(type="string", length=127)
 	 * @var string
 	 */
-	private $root_directory;
+	protected $root_directory;
 
 	/**
 	 * @ORM\Column(type="string", length=127)
 	 * @var string
 	 */
-	private $shell;
+	protected $shell;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $connection_count = 0;
+	protected $connection_count = 0;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Project\Project", inversedBy="storage", cascade={"persist"})
 	 * @var Project
 	 */
-	private $project;
+	protected $project;
 
 	/**
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	private $last_modified_at;
+	protected $last_modified_at;
 
 	/**
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	private $first_connection_at;
+	protected $first_connection_at;
 
 	/**
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	private $last_connection_at;
+	protected $last_connection_at;
 
 	use RemovableTrait;
 	use DateTimeTrait;

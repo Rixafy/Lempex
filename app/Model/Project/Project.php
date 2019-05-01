@@ -26,25 +26,25 @@ class Project
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
 	 */
-	private $name;
+	protected $name;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 * @var string
 	 */
-	private $description;
+	protected $description;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $linux_uid;
+	protected $linux_uid;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	private $linux_gid;
+	protected $linux_gid;
 
 	use RemovableTrait;
 	use DateTimeTrait;
