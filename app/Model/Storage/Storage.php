@@ -7,6 +7,7 @@ namespace Lempex\Model\Storage;
 use DateTime;
 use Lempex\Model\Project\Project;
 use Nette\Security\Passwords;
+use Ramsey\Uuid\UuidInterface;
 use Rixafy\DoctrineTraits\DateTimeTrait;
 use Rixafy\DoctrineTraits\RemovableTrait;
 
@@ -17,6 +18,13 @@ use Rixafy\DoctrineTraits\RemovableTrait;
  */
 class Storage
 {
+	/**
+	 * @var UuidInterface
+	 * @ORM\Id
+	 * @ORM\Column(type="uuid_binary", unique=true)
+	 */
+	protected $id;
+
 	/**
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
@@ -92,8 +100,9 @@ class Storage
 	use RemovableTrait;
 	use DateTimeTrait;
 
-	public function __construct(StorageData $storageData)
+	public function __construct(UuidInterface $id, StorageData $storageData)
 	{
+		$this->id = $id;
 		$this->project = $storageData->project;
 		$this->linux_uid = $this->project->getLinuxUid();
 		$this->linux_gid = $this->project->getLinuxGid();
@@ -106,6 +115,11 @@ class Storage
 		$this->description = $storageData->description;
 		$this->root_directory = $storageData->rootDirectory;
 		$this->shell = $storageData->shell;
+	}
+
+	public function getId(): UuidInterface
+	{
+		return $this->id;
 	}
 
 	public function getData(): StorageData
