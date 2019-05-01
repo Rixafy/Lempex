@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Lempex\Model\Project;
 
+use Ramsey\Uuid\UuidInterface;
 use Rixafy\DoctrineTraits\DateTimeTrait;
 use Rixafy\DoctrineTraits\RemovableTrait;
 
@@ -14,6 +15,13 @@ use Rixafy\DoctrineTraits\RemovableTrait;
  */
 class Project
 {
+	/**
+	 * @var UuidInterface
+	 * @ORM\Id
+	 * @ORM\Column(type="uuid_binary", unique=true)
+	 */
+	protected $id;
+
 	/**
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
@@ -41,8 +49,9 @@ class Project
 	use RemovableTrait;
 	use DateTimeTrait;
 
-	public function __construct(ProjectData $projectData)
+	public function __construct(UuidInterface $id, ProjectData $projectData)
 	{
+		$this->id = $id;
 		$this->edit($projectData);
 	}
 
@@ -52,6 +61,11 @@ class Project
 		$this->description = $projectData->description;
 		$this->linux_uid = $projectData->linuxUid;
 		$this->linux_gid = $projectData->linuxGid;
+	}
+
+	public function getId(): UuidInterface
+	{
+		return $this->id;
 	}
 
 	public function getData(): ProjectData
