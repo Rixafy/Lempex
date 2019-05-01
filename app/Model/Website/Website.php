@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Lempex\Model\Website;
 
 use Lempex\Model\Project\Project;
+use Ramsey\Uuid\UuidInterface;
 use Rixafy\DoctrineTraits\DateTimeTrait;
 use Rixafy\DoctrineTraits\RemovableTrait;
 
@@ -15,6 +16,13 @@ use Rixafy\DoctrineTraits\RemovableTrait;
  */
 class Website
 {
+	/**
+	 * @var UuidInterface
+	 * @ORM\Id
+	 * @ORM\Column(type="uuid_binary", unique=true)
+	 */
+	protected $id;
+
 	/**
 	 * @ORM\Column(type="string", length=127, unique=true)
 	 * @var string
@@ -66,8 +74,9 @@ class Website
 	use RemovableTrait;
 	use DateTimeTrait;
 
-	public function __construct(WebsiteData $websiteData)
+	public function __construct(UuidInterface $id, WebsiteData $websiteData)
 	{
+		$this->id = $id;
 		$this->parent = $websiteData->parent;
 		$this->project = $websiteData->project;
 		$this->edit($websiteData);
@@ -81,6 +90,11 @@ class Website
 		$this->php_version = $websiteData->phpVersion;
 		$this->www_redirect = $websiteData->wwwRedirect;
 		$this->non_www_redirect = $websiteData->nonWwwRedirect;
+	}
+
+	public function getId(): UuidInterface
+	{
+		return $this->id;
 	}
 
 	public function getData(): WebsiteData
