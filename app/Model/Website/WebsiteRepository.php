@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Lempex\Model\Website;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 use Lempex\Model\Website\Exception\WebsiteNotFoundException;
 use Ramsey\Uuid\UuidInterface;
 
@@ -18,6 +20,9 @@ class WebsiteRepository
 		$this->entityManager = $entityManager;
 	}
 
+	/**
+	 * @return EntityRepository|ObjectRepository
+	 */
 	private function getRepository()
 	{
 		return $this->entityManager->getRepository(Website::class);
