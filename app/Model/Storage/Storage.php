@@ -47,19 +47,19 @@ class Storage
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $linux_uid;
+	protected $linuxUid;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $linux_gid;
+	protected $linuxGid;
 
 	/**
 	 * @ORM\Column(type="string", length=127)
 	 * @var string
 	 */
-	protected $root_directory;
+	protected $rootDirectory;
 
 	/**
 	 * @ORM\Column(type="string", length=127)
@@ -71,7 +71,7 @@ class Storage
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $connection_count = 0;
+	protected $connectionCounter = 0;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Project\Project", inversedBy="storage", cascade={"persist"})
@@ -83,19 +83,19 @@ class Storage
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	protected $last_modified_at;
+	protected $lastChangedAt;
 
 	/**
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	protected $first_connection_at;
+	protected $firstConnectedAt;
 
 	/**
 	 * @ORM\Column(type="datetime")
 	 * @var DateTime
 	 */
-	protected $last_connection_at;
+	protected $lastConnectedAt;
 
 	use RemovableTrait;
 	use DateTimeTrait;
@@ -104,8 +104,8 @@ class Storage
 	{
 		$this->id = $id;
 		$this->project = $storageData->project;
-		$this->linux_uid = $this->project->getLinuxUid();
-		$this->linux_gid = $this->project->getLinuxGid();
+		$this->linuxUid = $this->project->getLinuxUid();
+		$this->linuxGid = $this->project->getLinuxGid();
 		$this->edit($storageData);
 	}
 
@@ -113,7 +113,7 @@ class Storage
 	{
 		$this->name = $storageData->name;
 		$this->description = $storageData->description;
-		$this->root_directory = $storageData->rootDirectory;
+		$this->rootDirectory = $storageData->rootDirectory;
 		$this->shell = $storageData->shell;
 	}
 
@@ -128,7 +128,7 @@ class Storage
 
 		$data->name = $this->name;
 		$data->description = $this->description;
-		$data->rootDirectory = $this->root_directory;
+		$data->rootDirectory = $this->rootDirectory;
 		$data->shell = $this->shell;
 
 		return $data;
@@ -156,17 +156,17 @@ class Storage
 
 	public function getLinuxUid(): int
 	{
-		return $this->linux_uid;
+		return $this->linuxUid;
 	}
 
 	public function getLinuxGid(): int
 	{
-		return $this->linux_gid;
+		return $this->linuxGid;
 	}
 
 	public function getRootDirectory(): string
 	{
-		return $this->root_directory;
+		return $this->rootDirectory;
 	}
 
 	public function getShell(): string
@@ -174,9 +174,9 @@ class Storage
 		return $this->shell;
 	}
 
-	public function getConnectionCount(): int
+	public function getConnectionCounter(): int
 	{
-		return $this->connection_count;
+		return $this->connectionCounter;
 	}
 
 	public function getProject(): Project
@@ -184,18 +184,18 @@ class Storage
 		return $this->project;
 	}
 
-	public function getLastModifiedAt(): DateTime
+	public function getLastChangedAt(): DateTime
 	{
-		return $this->last_modified_at;
+		return $this->lastChangedAt;
 	}
 
-	public function getFirstConnectionAt(): DateTime
+	public function getFirstConnectedAt(): DateTime
 	{
-		return $this->first_connection_at;
+		return $this->firstConnectedAt;
 	}
 
-	public function getLastConnectionAt(): DateTime
+	public function getLastConnectedAt(): DateTime
 	{
-		return $this->last_connection_at;
+		return $this->lastConnectedAt;
 	}
 }
