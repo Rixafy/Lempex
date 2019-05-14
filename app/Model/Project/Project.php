@@ -38,13 +38,13 @@ class Project
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $linux_uid;
+	protected $linuxUid;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $linux_gid;
+	protected $linuxGid;
 
 	use RemovableTrait;
 	use DateTimeTrait;
@@ -59,8 +59,8 @@ class Project
 	{
 		$this->name = $projectData->name;
 		$this->description = $projectData->description;
-		$this->linux_uid = $projectData->linuxUid;
-		$this->linux_gid = $projectData->linuxGid;
+		$this->linuxUid = $projectData->linuxUid;
+		$this->linuxGid = $projectData->linuxGid;
 	}
 
 	public function getId(): UuidInterface
@@ -74,8 +74,8 @@ class Project
 
 		$data->name = $this->name;
 		$data->description = $this->description;
-		$data->linuxUid = $this->linux_uid;
-		$data->linuxGid = $this->linux_gid;
+		$data->linuxUid = $this->linuxUid;
+		$data->linuxGid = $this->linuxGid;
 
 		return $data;
 	}
@@ -92,11 +92,11 @@ class Project
 
 	public function getLinuxUid(): int
 	{
-		return $this->linux_uid;
+		return $this->linuxUid;
 	}
 
 	public function getLinuxGid(): int
 	{
-		return $this->linux_gid;
+		return $this->linuxGid;
 	}
 }
