@@ -39,25 +39,25 @@ class Website
 	 * @ORM\Column(type="integer")
 	 * @var int
 	 */
-	protected $domain_level;
+	protected $domainLevel;
 
 	/**
 	 * @ORM\Column(type="float")
 	 * @var float
 	 */
-	protected $php_version;
+	protected $phpVersion;
 
 	/**
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	protected $www_redirect;
+	protected $wwwRedirect;
 
 	/**
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	protected $non_www_redirect;
+	protected $nonWwwRedirect;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="\Lempex\Model\Website\Website", inversedBy="website", cascade={"persist"})
@@ -86,10 +86,10 @@ class Website
 	{
 		$this->name = $websiteData->name;
 		$this->description = $websiteData->description;
-		$this->domain_level = $websiteData->domainLevel;
-		$this->php_version = $websiteData->phpVersion;
-		$this->www_redirect = $websiteData->wwwRedirect;
-		$this->non_www_redirect = $websiteData->nonWwwRedirect;
+		$this->domainLevel = $websiteData->domainLevel;
+		$this->phpVersion = $websiteData->phpVersion;
+		$this->wwwRedirect = $websiteData->wwwRedirect;
+		$this->nonWwwRedirect = $websiteData->nonWwwRedirect;
 	}
 
 	public function getId(): UuidInterface
@@ -103,10 +103,10 @@ class Website
 
 		$data->name = $this->name;
 		$data->description = $this->description;
-		$data->domainLevel = $this->domain_level;
-		$data->phpVersion = $this->php_version;
-		$data->wwwRedirect = $this->www_redirect;
-		$data->nonWwwRedirect = $this->non_www_redirect;
+		$data->domainLevel = $this->domainLevel;
+		$data->phpVersion = $this->phpVersion;
+		$data->wwwRedirect = $this->wwwRedirect;
+		$data->nonWwwRedirect = $this->nonWwwRedirect;
 
 		return $data;
 	}
@@ -123,22 +123,22 @@ class Website
 
 	public function getDomainLevel(): int
 	{
-		return $this->domain_level;
+		return $this->domainLevel;
 	}
 
 	public function getPhpVersion(): float
 	{
-		return $this->php_version;
+		return $this->phpVersion;
 	}
 
 	public function isWwwRedirect(): bool
 	{
-		return $this->www_redirect;
+		return $this->wwwRedirect;
 	}
 
 	public function isNonWwwRedirect(): bool
 	{
-		return $this->non_www_redirect;
+		return $this->nonWwwRedirect;
 	}
 
 	public function getParent(): Website
